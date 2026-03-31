@@ -1,0 +1,81 @@
+# ──────────────────────────────────────────────────────────────────
+# Jupyter Book configuration for Neural-LAM
+# https://jupyterbook.org/en/stable/customize/config.html
+# ──────────────────────────────────────────────────────────────────
+
+title: Neural-LAM
+author: mllam
+copyright: "2024"
+logo: ""
+
+# ── Execution ─────────────────────────────────────────────────────
+execute:
+  execute_notebooks: "off"          # don't re-run notebooks during build
+
+# ── Parse ─────────────────────────────────────────────────────────
+parse:
+  myst_enable_extensions:
+    - colon_fence                   # ::: admonition syntax
+    - deflist                       # definition lists
+    - dollarmath                    # $inline$ and $$block$$ math
+    - substitution
+
+# ── HTML output ───────────────────────────────────────────────────
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+  home_page_in_navbar: true
+
+# ── Repository info (for Edit / Issue buttons) ────────────────────
+repository:
+  url: https://github.com/mllam/neural-lam
+  branch: main
+  path_to_book: docs
+
+# ── Sphinx extensions & configuration ─────────────────────────────
+sphinx:
+  extra_extensions:
+    - autoapi.extension
+    - sphinxcontrib.mermaid
+    - sphinx_copybutton
+
+  config:
+    # ── sphinx-autoapi ──────────────────────────────────────────
+    autoapi_type: python
+    autoapi_dirs:
+      - "../neural_lam"             # path relative to docs/
+    autoapi_root: "api"             # output goes to docs/api/
+    autoapi_add_toctree_entry: true
+    autoapi_options:
+      - members
+      - undoc-members
+      - show-inheritance
+      - show-module-summary
+      - imported-members
+    autoapi_keep_files: false
+
+    # ── sphinxcontrib-mermaid ───────────────────────────────────
+    mermaid_version: "10.6.1"
+
+    # ── MyST-NB ────────────────────────────────────────────────
+    nb_execution_mode: "off"
+
+    # Disable jblatex part captions to fix AssertionError
+    jblatex_captions_to_parts: false
+
+    # ── Exclude .venv and _build from scanning ──────────────────
+    exclude_patterns:
+      - _build
+      - .venv
+      - "**.ipynb_checkpoints"
+      - .DS_Store
+
+    # ── Suppress known-noisy warnings ───────────────────────────
+    suppress_warnings:
+      - myst.header
+      - myst.xref_missing
+
+    # ── Disable sphinx-thebe (causes crash with notebook cells) ─
+    thebe_config:
+      use_thebe: false

@@ -1,0 +1,28 @@
+# ──────────────────────────────────────────────────────────────────
+# Table of Contents for Neural-LAM Jupyter Book
+# https://jupyterbook.org/en/stable/structure/toc.html
+# ──────────────────────────────────────────────────────────────────
+
+format: jb-book
+root: index
+
+parts:
+  - caption: Getting Started
+    chapters:
+      - file: getting-started/overview
+      - file: getting-started/installation
+
+  - caption: User Guide
+    chapters:
+      - file: user-guide/datastores
+      - file: user-guide/custom-dataset
+      - file: user-guide/graph-generation
+      - file: user-guide/training
+      - file: user-guide/evaluation
+
+  - caption: Contributing
+    chapters:
+      - file: contributing/architecture
+      - file: contributing/setup
+      - file: contributing/what-neural-lam-needs
+      - file: contributing/contributing

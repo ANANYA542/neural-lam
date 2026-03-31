@@ -92,3 +92,7 @@ build/
 *.egg-info/
 
 tests/test_outputs/
+
+# Jupyter Book build output
+docs/_build/
+docs/api/*.rst
